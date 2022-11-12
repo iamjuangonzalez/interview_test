@@ -6,7 +6,7 @@ import Link from "next/link";
 import axios from "axios";
 import Map from "../../components/index";
 
-const ViewEstate = () => {
+const ViewEstate = ({props}) => {
   const router = useRouter();
   const [data, setData] = useState({});
 
@@ -27,7 +27,7 @@ const ViewEstate = () => {
   }
 
   useEffect(() => {
-    getEstateDetaill();
+    /* getEstateDetaill(); */
   }, [router.query.id]);
   return (
     <>
@@ -56,22 +56,27 @@ const ViewEstate = () => {
                 <span className="item">
                   Nombre de la propiedad:{" "}
                   <span className="item-estate">{data.name}</span>
-                </span><br />
+                </span>
+                <br />
                 <span className="item">
                   Direccion:{" "}
                   <span className="item-estate">{data?.address}</span>
-                </span><br />
+                </span>
+                <br />
                 <span className="item">
                   Ciudad: <span className="item-estate">{data?.city}</span>
-                </span><br />
+                </span>
+                <br />
                 <span className="item">
                   Precio: ${" "}
                   <span className="item-estate">{data?.naturalPrice}</span>
-                </span><br />
+                </span>
+                <br />
                 <span className="item">
                   Codigo Postal:{" "}
                   <span className="item-estate">{data?.postalCode}</span>
-                </span><br />
+                </span>
+                <br />
               </div>
               <Link href="/">
                 <button className="btn btn-primary">Volver</button>
@@ -84,11 +89,7 @@ const ViewEstate = () => {
   );
 };
 
-{
-  /* <Map data={{ lat: data?.geo_lat, lng: data?.geo_lng }} /> */
-}
-
-/* export async function getServerSideProps({ res, query }) {
+export async function getServerSideProps({ res, query }) {
   const response = await axios.get(
     `${process.env.NEXT_PUBLIC_URL_API}/getEstate`,
     {
@@ -97,5 +98,5 @@ const ViewEstate = () => {
   );
   res.setHeader("Content-language", "es");
   return { props: { data: response.data } };
-} */
+}
 export default ViewEstate;
