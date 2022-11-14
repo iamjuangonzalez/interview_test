@@ -36,7 +36,7 @@ export const Search = () => {
     <>
       <div className="container d-flex justify-content-center">
         <div className="search">
-          <h1>Welcome to a best search of estates </h1>
+          <span className="text-welcome texto">Welcome to a best search of estate</span>
           <input
             type="text"
             className="input-search"
@@ -47,7 +47,7 @@ export const Search = () => {
               getAutocomplete(event.target.value);
             }}
           ></input>
-          {loading && <div>Cargando tu busqueda de</div>}
+          {loading && <div>Cargando tu busqueda {text}</div>}
           <div className="results">
             {results.length > 0 && (
               <ul className="list-items">
