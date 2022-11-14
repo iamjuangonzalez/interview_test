@@ -27,7 +27,7 @@ const ViewEstate = ({props}) => {
   }
 
   useEffect(() => {
-    /* getEstateDetaill(); */
+    getEstateDetaill();
   }, [router.query.id]);
   return (
     <>
